@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>GymTracker - Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Criar Conta</h1>
+        <input type="text" id="nomeCadastro" placeholder="Seu Nome Completo">
+        <input type="email" id="emailCadastro" placeholder="Seu E-mail">
+        <input type="password" id="senhaCadastro" placeholder="Crie uma Senha">
+        <button onclick="fazerCadastro()">Cadastrar</button>
+        <p>Já tem conta? <a href="index.html">Fazer Login</a></p>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Função específica para esta tela
+        async function fazerCadastro() {
+            const nome = document.getElementById("nomeCadastro").value;
+            const email = document.getElementById("emailCadastro").value;
+            const senha = document.getElementById("senhaCadastro").value;
+
+            if(!nome || !email || !senha) {
+                alert("Preencha tudo!");
+                return;
+            }
+
+            // MUDAR AQUI SEU API_URL SE NECESSÁRIO (pega do script.js global se estiver lá)
+            // Mas para garantir, vou usar a rota direta:
+            const response = await fetch(`${API_URL}/register`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ nome, email, senha })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert("Cadastro realizado! Faça login.");
+                window.location.href = "index.html";
+            } else {
+                alert("Erro: " + data.error);
+            }
+        }
+    </script>
+</body>
+</html>
