@@ -2,32 +2,36 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus Treinos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <h2>Olá, <span id="nomeUsuario">Aluno</span></h2>
-        <button onclick="logout()" class="btn-danger">Sair</button>
-    </nav>
+    <div class="container" style="max-width: 600px;">
+        <nav>
+            <h2>Olá, <span id="nomeUsuario">Aluno</span> 👋</h2>
+            <button onclick="logout()" class="btn-danger">Sair</button>
+        </nav>
 
-    <div class="container">
         <h3>Adicionar Novo Exercício</h3>
         <div class="form-treino">
             <input type="text" id="exercicio" placeholder="Ex: Supino Reto">
             <input type="number" id="series" placeholder="Séries">
-            <input type="number" id="reps" placeholder="Repetições">
+            <input type="number" id="reps" placeholder="Reps">
             <input type="text" id="carga" placeholder="Carga (kg)">
-            <button onclick="adicionarTreino()">Salvar</button>
+            <button onclick="adicionarTreino()">Salvar Treino</button>
         </div>
 
-        <h3>Minha Ficha</h3>
+        <h3>Minha Ficha de Hoje</h3>
         <ul id="listaTreinos">
             </ul>
     </div>
     <script src="script.js"></script>
     <script>
-        // Verifica se está logado ao carregar
+        // Carrega os dados ao abrir a página
         verificarAuth();
     </script>
 </body>

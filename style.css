@@ -1,7 +1,33 @@
-body { font-family: Arial, sans-serif; background-color: #f4f4f9; display: flex; justify-content: center; }
-.container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 300px; }
-input { display: block; width: 90%; margin: 10px 0; padding: 10px; }
-button { width: 100%; padding: 10px; background: #28a745; color: white; border: none; cursor: pointer; }
-button:hover { background: #218838; }
-.btn-delete { background: red; width: auto; margin-left: 10px; }
-li { margin: 10px 0; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+:root {
+    --bg-color: #121212;
+    --container-bg: #1e1e1e;
+    --input-bg: #2a2a2a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --accent-color: #007bff;
+    --accent-hover: #0056b3;
+    --danger-color: #ff4757;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-primary); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+.container { background: var(--container-bg); padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); width: 100%; max-width: 450px; text-align: center; }
+h1, h2, h3 { margin-bottom: 25px; color: white; font-weight: 600; }
+h3 { margin-top: 30px; text-align: left; font-size: 1.1rem; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px; }
+input { display: block; width: 100%; padding: 14px; margin-bottom: 15px; border: 2px solid transparent; background-color: var(--input-bg); color: white; border-radius: 8px; transition: all 0.3s ease; }
+input:focus { outline: none; border-color: var(--accent-color); background-color: #333; }
+button { width: 100%; padding: 14px; background-color: var(--accent-color); color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: 0.3s; }
+button:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
+.btn-danger, .btn-delete { background-color: var(--danger-color); }
+.btn-danger:hover, .btn-delete:hover { background-color: #e84118; }
+p { margin-top: 20px; color: var(--text-secondary); font-size: 0.9rem; }
+a { color: var(--accent-color); text-decoration: none; font-weight: 600; }
+nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 1px solid #333; }
+nav .btn-danger { width: auto; padding: 10px 20px; }
+.form-treino { display: flex; gap: 10px; flex-wrap: wrap; }
+.form-treino input { flex: 1 1 80px; margin-bottom: 10px; }
+.form-treino input#exercicio { flex: 2 1 150px; }
+.form-treino button { flex: 1 1 100%; margin-top: 5px; }
+ul#listaTreinos { list-style: none; padding: 0; margin-top: 20px; max-height: 300px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--accent-color) var(--container-bg); }
+li { background-color: var(--input-bg); padding: 15px; margin-bottom: 12px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; border-left: 4px solid var(--accent-color); box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+li strong { display: block; font-size: 1.1rem; color: white; }
+.btn-delete { width: auto; padding: 8px 12px; margin-left: 15px; font-size: 0.9rem; border-radius: 6px; }
