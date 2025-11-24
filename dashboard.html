@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Meus Treinos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <h2>Olá, <span id="nomeUsuario">Aluno</span></h2>
+        <button onclick="logout()" class="btn-danger">Sair</button>
+    </nav>
+
+    <div class="container">
+        <h3>Adicionar Novo Exercício</h3>
+        <div class="form-treino">
+            <input type="text" id="exercicio" placeholder="Ex: Supino Reto">
+            <input type="number" id="series" placeholder="Séries">
+            <input type="number" id="reps" placeholder="Repetições">
+            <input type="text" id="carga" placeholder="Carga (kg)">
+            <button onclick="adicionarTreino()">Salvar</button>
+        </div>
+
+        <h3>Minha Ficha</h3>
+        <ul id="listaTreinos">
+            </ul>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Verifica se está logado ao carregar
+        verificarAuth();
+    </script>
+</body>
+</html>
