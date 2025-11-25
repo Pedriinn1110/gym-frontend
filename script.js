@@ -2,6 +2,39 @@ const API_URL = "https://gym-backend-nijm.onrender.com"; // MUDAR ISSO DEPOIS DO
 
 // --- FUNÇÕES DE AUTH ---
 
+async function fazerCadastro() {
+    console.log("Iniciando cadastro...");
+
+    const nome = document.getElementById("nomeCadastro").value;
+    const email = document.getElementById("emailCadastro").value;
+    const senha = document.getElementById("senhaCadastro").value;
+
+    // Validação simples
+    if (!nome || !email || !senha) {
+        return alert("Por favor, preencha todos os campos!");
+    }
+
+    try {
+        const response = await fetch(`${API_URL}/register`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ nome, email, senha })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert("Cadastro realizado com sucesso! Agora faça login.");
+            window.location.href = "index.html"; // Manda para a tela de login
+        } else {
+            alert("Erro ao cadastrar: " + (data.error || "Erro desconhecido"));
+        }
+    } catch (error) {
+        console.error("Erro de conexão:", error);
+        alert("Erro ao conectar com o servidor. Verifique se o Back-end está rodando.");
+    }
+}
+
 async function fazerLogin() {
     const email = document.getElementById("email").value;
     const senha = document.getElementById("senha").value;
